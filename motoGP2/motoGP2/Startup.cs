@@ -12,6 +12,7 @@ using Microsoft.EntityFrameworkCore;
 using motoGP2.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using motoGP2.Models;
 
 namespace motoGP2
 {
@@ -41,10 +42,12 @@ namespace motoGP2
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+            services.AddDbContext<MotoGpContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, MotoGpContext context )
         {
             if (env.IsDevelopment())
             {
@@ -69,6 +72,9 @@ namespace motoGP2
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+
+            DbInitializer.Initialize(context);
+            
         }
     }
 }
