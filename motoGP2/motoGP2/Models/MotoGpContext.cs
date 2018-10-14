@@ -11,11 +11,11 @@ namespace motoGP2.Models
         public MotoGpContext(DbContextOptions<MotoGpContext> options) : base(options) {
         }
 
-        public DbSet<Country> Countries;
-        public DbSet<Race> Races;
-        public DbSet<Rider> Riders;
-        public DbSet<Team> Teams;
-        public DbSet<Ticket> Tickets;
+        public DbSet<Country> Countries { get; set; }
+        public DbSet<Race> Races { get; set; }
+        public DbSet<Rider> Riders { get; set; }
+        public DbSet<Team> Teams { get; set; }
+        public DbSet<Ticket> Tickets { get; set; }
 
     }
 }
