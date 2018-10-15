@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewData["Title"] = "Menu";
+    Layout = "~/Views/Shared/_NewLayout.cshtml";
+    string imageName = "Banner" + ViewData["BannerNr"].ToString() + ".jpg";
+
+
+}
+
+
+
+<body>
+    <div style="margin:auto">
+        <img src="~/images/allerlei/@imageName" alt="Banner" />
+        <div>
+            <div style="display:inline-block">
+                <a asp-controller="Info" asp-action="Index">
+                    <img src="~/images/allerlei/races.png" alt="Races" />
+                </a>
+            </div>
+            <div style="display:inline-block">
+                <img src="~/images/allerlei/teams.png" alt="Teams" />
+            </div>
+        </div>
+        <div style="margin:auto">
+            <div style="display:inline-block">
+                <a asp-controller="Home" asp-action="Riders">
+                    <img src="~/images/allerlei/riders.png" alt="Riders" />
+                </a>
+            </div>
+            <div style="display:inline-block">
+                <img src="~/images/allerlei/tickets.png" alt="Tickets" />
+            </div>
+        </div>
+    </div>
+
+
+
+
+</body>
+

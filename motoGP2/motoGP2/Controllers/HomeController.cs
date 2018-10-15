@@ -10,10 +10,13 @@ namespace motoGP2.Controllers
 {
     public class HomeController : Controller
     {
+        Random random = new Random();
         public IActionResult Index()
         {
             return View();
         }
+
+
 
         public IActionResult About()
         {
@@ -38,6 +41,15 @@ namespace motoGP2.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+        public IActionResult Menu()
+        {
+
+            ViewData["BannerNr"] = random.Next(1, 5);
+
+
+            return View();
         }
     }
 }
