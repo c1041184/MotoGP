@@ -1,0 +1,22 @@
+﻿@model Race;
+@{ 
+    ViewData["BannerNr"] = 0;
+    Race race = (Race)Model;
+    ViewData["Title"] = "Races - "+race.Name;
+
+
+}
+
+<body>
+    <h3>
+        @Html.Display(race.Date.ToShortDateString() + " " + race.Country)
+    </h3>
+    <img src="~/images/races/@String.Concat(race.RaceID.ToString(),".jpg")" />
+    <div>
+        @race.Description
+    </div>
+    <div>
+        <a asp-action="ListRaces" asp-controller="Info">Back</a>
+    </div>
+
+</body>

@@ -1,9 +1,32 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification\ 
 for details on configuring this project to bundle and minify static web assets. */
 body {
-    padding-top: 50px;
+    padding-top: 0;
     padding-bottom: 20px;
 }
+
+.red {
+    color:red;
+}
+
+
+
+.Rider {
+    background-color: lightgrey;
+    padding: 1em;
+    margin: 0.3em;
+    display:inline-block;
+}
+
+
+h3 {
+    margin:0;
+    margin-bottom: 0.2rem;
+    margin-top: 0.2rem;
+}
+
+
+
 
 /* Wrapping element */
 /* Set some basic padding to keep content from hitting the edges */

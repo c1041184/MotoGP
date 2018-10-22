@@ -5,15 +5,25 @@
     <meta name="viewport" content="width=device-width" />
     <title>@ViewData["Title"] - MotoGP</title>
     <link rel="stylesheet" href="~/css/site.css" />
+
 </head>
 @{
     var banners = new List<String>
-    { "bannerRaces.jpg", "bannerRiders.jpg", "bannerTeams.jpg", "bannerTickets.jpg" };
+{ "bannerRaces.jpg", "bannerRiders.jpg", "bannerTeams.jpg", "bannerTickets.jpg" };
 }
 
 <body>
+
+    <div>
+        @{
+            string bannername = banners[(int)ViewData["BannerNr"]];
+        }
+        <img src="~/images/allerlei/@bannername">
+    </div>
+    <h1 class="red">@ViewData["Title"]</h1>
     <div>
         @RenderBody()
     </div>
+
 </body>
 </html>

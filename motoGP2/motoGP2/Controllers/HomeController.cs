@@ -13,6 +13,7 @@ namespace motoGP2.Controllers
         Random random = new Random();
         public IActionResult Index()
         {
+            IActionResult test = View();
             return View();
         }
 

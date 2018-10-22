@@ -1,0 +1,29 @@
+﻿@model IEnumerable<Race>
+@{
+    ViewData["Title"] = "Races On Map";
+    ViewData["BannerNr"] = 0;
+    ViewData["Races"] = new List<Race> {
+
+    };
+}
+
+<a>
+    @{ 
+        List<Race> r = (List<Race>)ViewData["Races"];
+
+    }
+    
+
+    <img src="~/images/allerlei/map.png" usemap="#RaceMap">
+    <map name="RaceMap">
+        @{
+            foreach (Race race in Model)
+            {
+                // URL action zit nog niet juis
+
+                <area shape="circle" coords="@race.X,@race.Y,50" alt="1" href=@Url.Action("ShowRace","Info", new { id=race.RaceID }) />
+            }
+
+        }
+    </map>
+</a>

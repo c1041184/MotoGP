@@ -12,24 +12,30 @@
 <body>
     <div style="margin:auto">
         <img src="~/images/allerlei/@imageName" alt="Banner" />
-        <div>
+
+        <div style="margin-left:300px">
             <div style="display:inline-block">
-                <a asp-controller="Info" asp-action="Index">
+                <a asp-controller="Info" asp-action="ListRaces">
                     <img src="~/images/allerlei/races.png" alt="Races" />
                 </a>
             </div>
             <div style="display:inline-block">
-                <img src="~/images/allerlei/teams.png" alt="Teams" />
+                <a asp-controller="Info" asp-action="ListTeams">
+                    <img src="~/images/allerlei/teams.png" alt="Teams" />
+                </a>
             </div>
         </div>
-        <div style="margin:auto">
+        <div style="margin-left:300px">
             <div style="display:inline-block">
-                <a asp-controller="Home" asp-action="Riders">
+                <a asp-controller="Info" asp-action="ListRiders">
                     <img src="~/images/allerlei/riders.png" alt="Riders" />
                 </a>
             </div>
             <div style="display:inline-block">
-                <img src="~/images/allerlei/tickets.png" alt="Tickets" />
+                <a asp-controller="Shop" asp-action="OrderTicket">
+                    <img src="~/images/allerlei/tickets.png" alt="Tickets" />
+                </a>
+
             </div>
         </div>
     </div>

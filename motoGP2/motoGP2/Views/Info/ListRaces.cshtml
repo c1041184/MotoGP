@@ -1,0 +1,55 @@
+﻿
+@model IEnumerable<Race>
+@{
+  
+    ViewData["Title"] = "Races";
+    ViewData["BannerNr"] = 0;
+}
+
+<table>
+    @{
+        string month = "";
+        foreach (Race r in Model)
+        {
+            if (month != r.Date.ToString("MMMM"))
+            {
+
+                month = r.Date.ToString("MMMM");
+                string monthTitleCase = month.Substring(0, 1).ToUpper() + month.Substring(1);
+
+                <tr> 
+                    <td><h3>@monthTitleCase</h3></td>
+                </tr>
+
+            }
+
+
+            <tr >
+            <td>
+                @r.Date.ToShortDateString()
+            </td>
+            <td>
+               
+                @Html.ActionLink(r.Name, "ShowRace", "Info", new { id = r.RaceID});
+            </td>
+            </tr>
+        }
+    }
+</table>
+
+
+<ul  style="text-decoration:none ;padding-left:0px;">
+    <li  style="display:inline-block">
+        <a asp-controller="Home" asp-action="Menu" style="display:  block">Back</a>
+    </li>
+    <li style="display:inline-block">
+        <a asp-controller="Info" asp-action="BuildMap" style="display:  block">Races On Map</a>
+    </li>
+    <li style="display:inline-block">
+        <a>One by one</a>
+    </li>
+</ul>
+
+
+
+

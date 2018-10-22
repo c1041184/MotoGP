@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Rider>
+@{
+    ViewData["Title"] = "Riders";
+    ViewData["BannerNr"] = 1;
+}
+
+@{
+    int counter = 0;
+    foreach (Rider rider in Model)
+    {
+        counter++;
+        <div class="Rider">
+            <div>
+                <img src="~/images/rijders/@String.Concat(rider.Number,".jpg")" alt="" />
+            </div>
+            <div>
+                <div style="display:flex">
+                    <div>
+                        <img src="~/images/vlaggen/@String.Concat(rider.CountryID,".png")" alt="" />
+                    </div>
+                    <div style="margin-left:auto"><h3>@rider.Number</h3></div>
+                </div>
+
+            </div>
+            <div>
+                <text>
+                    @rider.FirstName @rider.LastName
+                </text>
+            </div>
+        </div>
+        @if (counter % 3 == 0)
+        {
+            <div></div>
+        }
+
+    }
+    <a asp-controller="Home" asp-action="Menu">back</a>
+}
+
+
+
