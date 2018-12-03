@@ -1,4 +1,4 @@
-﻿
+﻿@model motoGP2.ViewModels.ConfirmOrderViewModel;
 @{
     ViewData["Title"] = "Confirmation";
     ViewData["BannerNr"] = 3;
@@ -6,13 +6,15 @@
 
 
 <body>
-    <p>
-        Thank you for ordering tickets for the race. Your booking is registered on 
-        <strong>@DateTime.Now.ToShortDateString()</strong>. We will send the tickets as soon as possible.
-    </p>
 
+    <p>thank you <strong>@Model.Ticket.Name</strong> for ordering tickets for the race in <strong>@Model.Race.Name</strong> on 
+    <strong>@Model.Race.Date.ToShortDateString()</strong>. Your Booking is registered on <strong>@Model.Ticket.OrderDate.ToShortDateString()</strong>. We will send the
+    <strong>@Model.Ticket.Number</strong> tickets as soon as possible.
+
+    </p>
 
     <a asp-controller="Home" asp-action="Menu">
         Back
     </a>
+
 </body>

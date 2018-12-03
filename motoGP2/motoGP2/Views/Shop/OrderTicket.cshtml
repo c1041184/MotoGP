@@ -1,13 +1,80 @@
-﻿
+﻿@model motoGP2.ViewModels.OrderTicketViewModel
 @{
+    SelectList selectLists = Model.Countries;
     ViewData["Title"] = "Order Tickets";
+    ViewData["BannerNr"] = 3;
+
 
 }
 
 <body>
-    <p>
-        Please fill out de following fields
-    </p>
+    <form action="/" method="post">
+        <table>
+            <tr>
+                <td>
+                    <label asp-for="ticket.Name">@Html.DisplayFor(m => m.ticket.Name)</label>
+                </td>
+                <td>
+                    <input asp-for="ticket.Name" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label asp-for="ticket.Email">@Html.DisplayFor(m => m.ticket.Email)</label>
+                </td>
+                <td>
+                    <input asp-for="ticket.Email" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label asp-for="ticket.Address">@Html.DisplayFor(m => m.ticket.Address)</label>
+                </td>
+                <td>
+                    <input asp-for="ticket.Address" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label asp-for="ticket.Number">@Html.DisplayFor(m=> m.ticket.Number)</label>
+                </td>
+                <td>
+                    @{ for (int i = 1; i < 7; i++)
+                        {
+                            <input type="radio" asp-for="ticket.Number" value="@i" />
+                            <label asp-for="ticket.Number">@i</label>
+                        }
+                    }
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label asp-for="ticket.CountryID">Country</label>
+                </td>
+                <td>
+                    <select asp-for="ticket.CountryID" asp-items="Model.Countries"></select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <h3>
+                        <label asp-for="ticket.RaceID">Select Race</label>
+                    </h3>
+                    
+                </td>
+                <td>
+                    <select asp-for="ticket.RaceID" asp-items="Model.Races"></select>
+                </td>
+            </tr>
+            
+
+        </table>
+        <button asp-action="ConfirmOrder" value="Order Ticket">
+            Order Ticket
+        </button>
+
+    </form>
+
     <a asp-controller="Home" asp-action="Menu">
         Back
     </a>
